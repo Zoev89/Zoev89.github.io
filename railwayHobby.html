@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>My modeltrack</title>
+</head>
+<body>
+History<br><br>
+</body>
+<body>
+As a small boy I had a small track (1.2x2.44m) that my father once made. In the years I revised the track 2 times. From that I learned a lot. Most important I think is that you should never make your grades steaper than 
+4%. Actually I use 3% or less if possible. When I had my first house the railway hobby started to itch again and I started laying out a track of about 48m of track. With this railway I started experimenting with computer controlled trains. The switch board does take some room and to remember a lot of those buttons seems difficult. (On my small track I had 6 switches in the track so controlling them is not diffucult) Now with 48m and 14 switches it becomes more difficult. Since none of my trains are digitally prepared I decided to make segments in the track and to indiviually control the output voltage on each segment by the computer.
+Even if you are using digitally controlled trains you still need to know where the train is in order to avoid collisions. My first hardware was build using TTL ICs. I used a rack with double euro format pcb's. I made one central clock card that also implemented the interface to the parallelport of the computer. A card with 64 outputs to control switches and lights. And once card with 16 outputs for the tracksegements. Since I needed 48 outputs (one segment is on avarige 1m long) I still needed to make 2 additional cards. On order to reduce the amount of work I decided to use 2 altera epld's each having 128 marco cells. This worked well and I was able to run multiple trains each having its own speed. Along with the computer program that I developed the trains could run on the track without causing collisions (as long you don't lose stuff or if the track is blocked with junk). Each 16 outputs were powered by a 3 ampere power supply leaving enough power to power the trains and not causing damage if a short circuit is created. After reading an articule on how to measure the speed of a DC Electoromotor I was convinced that using a AD converter for each segment would improve the driving characteristic of the trains. It was very difficult to get some trains running from standstill on a hill (some need about 100% power to get running). There also was an other disatvantage about that system since all wires needed to go to the central control location. So started thinking about using microcontrollers for the segment to allow a AD converter measure if the train is running and also to check if there is a short circuit. You can place the microcontroller below the track where you want it and let it communicate with a serial interface to the computer. All microcontrollers would be connect to the same serial line. In practive you only addres one controller at the time and only that one would send its reply (measured value of the AD converter). The speed of that serial interface is not that high about 28800 baud) to allow long cables. With the previous hardware I learned that using high speed switching was not required even if you switch above 20KHz you could still hear the engines since the long powersupply lines make that you hear subharmonincs. I tunned that previous hardware down to about 30Hz cycle rate so that the sound is more masked with the mechanical sounds of the engine. I first wanted to use one mircocontroller per segment but it was financially more attractive to use 6 segments per microcontroller. I decided to use the Atmel 90S2333 controller which comes in a nice compact 28 pin dip packedge. It has one AD conveter with a switch infront of it to allow 6 inputs to be monitored. The designen uses now the 90S2333 and the 90S4433 and the mega8 which is basically the same chip only a newer version. I made a printed circuit board where the power transitors and the microcontroller and the serial interface and a current limitor at 3 ampere is combined on one pcb of 5x8 cm. (leaving 4 boards out of a standard 10x16cm euro board). I was able to reduce quite a bit of wiring by this decentrallized control of the track. After I moved to a new house I reused a part of the old track and expanded to the current track of 110m and 42 switches. The computer does nicely control this track. Using the AD converter I was able to control the speed of the trains much better. They don't run at a constand speed but they start much better and running at a slow speed is also improved (as long a the wheels are clean). I like having the intelligence in the track and having the engines simple. No problems with debugging addresses of engines etc. If the engine does not run you only need to check the power on the track 1% (simple light bulp will do) or the cleanes of wheels/track (98%) or the internal wiring (1%).
+<br><br>
+<ul>
+<li><A HREF="baanPictures/index.html">Some pictures of the track</A>
+<p>
+<li><A HREF="baanBrug/index.html">The bridge project</A>
+<p>
+<li><A HREF="baanOversteek/index.html">Track crossing</A>
+<p>
+<li><A HREF="baanStation/index.html">Lehrter Bahnhof</A>
+<p>
+<li><A HREF="draaiSchijf/index.html">Turn table</A>
+<p>
+<li><A HREF="stootblok/index.html">Endblock</A>
+<p>
+</ul>
+
+</body>
+</html>
+
+
